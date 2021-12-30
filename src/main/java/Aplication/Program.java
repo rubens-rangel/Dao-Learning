@@ -16,5 +16,6 @@ public class Program {
         Seller seller = sellerDao.findById(3);
 
         System.out.println(seller);
+
     }
 }
