@@ -3,10 +3,7 @@ package Aplication;
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
-import model.entities.Seller;
 
-
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,8 +12,6 @@ public class Program2 {
         Scanner sc = new Scanner(System.in);
 
         DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
-
-        //  List<Seller> list = departmentDao.findByDepartment(department);
 
         System.out.println("=== Test 1: department findbyID ===");
         Department dep = departmentDao.findById(3);
@@ -37,5 +32,12 @@ public class Program2 {
         dep.setName("Papelaria");
         departmentDao.update(dep);
         System.out.println("Update complete");
+
+        System.out.println("\n=== TEST 5: department delete =====");
+        System.out.println("type a code to delete:");
+        int id = sc.nextInt();
+        departmentDao.deleteById(id);
+        System.out.println("Id deleted");
+        sc.close();
     }
 }
